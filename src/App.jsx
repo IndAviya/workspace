@@ -1,3 +1,7 @@
+import profileImg from "./profile-main.jpg";
+import beachImg from "./gallery-beach.jpg";
+import dunesImg from "./gallery-dunes.jpg";
+
 export default function App() {
   const projects = [
     {
@@ -6,7 +10,7 @@ export default function App() {
       description:
         "A modern integration platform concept focused on dashboards, monitoring, deployments, and a clean user experience.",
       tech: ["React", "UI Design", "Frontend"],
-      link: "#",
+      link: "https://github.com/nicoleglorioso/ASEI-Project.git",
     },
     {
       number: "02",
@@ -14,7 +18,7 @@ export default function App() {
       description:
         "A C-based system for secure and efficient file storage using compression, encryption, and file handling concepts.",
       tech: ["C", "Algorithms", "File Handling"],
-      link: "#",
+      link: "https://edstem.org/au/courses/30973/workspaces/p6FQvLfxVRkqU3EGQlWFmqVdeiH7ggd0",
     },
     {
       number: "03",
@@ -22,7 +26,7 @@ export default function App() {
       description:
         "Research exploring how generative AI tools influence software engineering students during programming tasks.",
       tech: ["AI", "Research", "Software Engineering"],
-      link: "#",
+      link: "https://drive.google.com/file/d/1ib4VbtTt_uLNhxuMRdN42grEQ7W9G0t9/view?usp=sharing",
     },
   ];
 
@@ -68,12 +72,16 @@ export default function App() {
 
   const galleryImages = [
     {
-      title: "Beach",
-      src: "/gallery-beach.jpg",
+      title: "Personal",
+      src: beachImg,
+      description:
+        "Outside of software engineering, I enjoy cricket, fitness, travelling, exploring beaches, and learning new creative skills.",
     },
     {
-      title: "Dunes",
-      src: "/gallery-dunes.jpg",
+      title: "Education",
+      src: dunesImg,
+      description:
+        "I am studying Bachelor of Engineering (Honours) in Software Engineering at UTS, focusing on software development, systems testing, data structures, AI, and software analysis.",
     },
   ];
 
@@ -83,84 +91,114 @@ export default function App() {
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { margin: 0; background: #0b0b0b; }
-        a, button, div, img { transition: all 0.3s ease; }
+        a, button, div, img, span { transition: all 0.3s ease; }
+
         .nav-link:hover { opacity: 0.7; }
+
         .project-card:hover {
           transform: translateY(-8px);
           border-color: rgba(255,255,255,0.25);
           box-shadow: 0 18px 40px rgba(0,0,0,0.35);
         }
+
         .social-button:hover {
           transform: translateY(-3px);
           background: #1a1a1a;
           border-color: rgba(255,255,255,0.24);
         }
+
         .skill-pill:hover {
           background: rgba(255,255,255,0.06);
           transform: translateY(-2px);
         }
-        .hero-button-primary:hover {
-          transform: translateY(-2px);
-          background: #e8e8e8;
-        }
-        .hero-button-secondary:hover {
-          transform: translateY(-2px);
-          border-color: rgba(255,255,255,0.35);
-        }
+
+        .hero-button-primary:hover,
+        .hero-button-secondary:hover,
         .resume-button:hover {
           transform: translateY(-2px);
-          background: #ffffff;
-          color: #111111;
         }
+
         .profile-image:hover {
           transform: scale(1.02);
         }
+
         .gallery-card:hover {
           transform: translateY(-6px);
           border-color: rgba(255,255,255,0.22);
           box-shadow: 0 18px 40px rgba(0,0,0,0.28);
         }
+
         .gallery-card:hover img {
           transform: scale(1.04);
         }
+
+        .gallery-card:hover .gallery-overlay {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .gallery-card:hover .gallery-title-bar {
+          opacity: 0;
+        }
+
         .project-link:hover {
           opacity: 0.8;
         }
+
         @media (max-width: 768px) {
           .main-header {
             padding: 18px 20px !important;
           }
+
           .hero-section {
             padding: 20px 20px 40px 20px !important;
           }
+
           .hero-loop {
             font-size: 34px !important;
           }
+
           .hero-title {
             font-size: 48px !important;
             line-height: 1 !important;
           }
+
           .hero-grid {
             gap: 24px !important;
             margin-top: 24px !important;
           }
+
           .section {
             padding: 36px 20px !important;
           }
+
           .contact-section {
             padding: 42px 20px !important;
           }
+
           .footer {
             padding: 20px !important;
           }
+
           .project-title {
             font-size: 22px !important;
           }
+
           .gallery-grid {
             grid-template-columns: 1fr !important;
           }
+
           .profile-image {
             height: 420px !important;
+          }
+
+          .gallery-overlay {
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+
+          .gallery-title-bar {
+            opacity: 0 !important;
           }
         }
       `}</style>
@@ -198,17 +236,12 @@ export default function App() {
           <div>
             <div style={styles.profileCard}>
               <img
-                src="/profile-main.jpg"
+                src={profileImg}
                 alt="Indumina profile"
                 style={styles.profileImage}
                 className="profile-image"
               />
             </div>
-            <p style={styles.imageHint}>
-              Add your main photo as <strong>profile-main.jpg</strong>, and the
-              two extra photos as <strong>gallery-beach.jpg</strong> and{" "}
-              <strong>gallery-dunes.jpg</strong> in CodeSandbox.
-            </p>
           </div>
 
           <div>
@@ -219,10 +252,12 @@ export default function App() {
             <h1 style={styles.heroTitle} className="hero-title">
               Hi, I’m Indumina.
             </h1>
+
             <p style={styles.heroText}>
               I’m a Software Engineering student at UTS, interested in frontend
               development, software systems, and AI in software engineering.
             </p>
+
             <p style={styles.heroText}>
               I enjoy building clean interfaces, learning modern tools, and
               turning technical ideas into practical projects.
@@ -236,6 +271,7 @@ export default function App() {
               >
                 Selected Work
               </a>
+
               <a
                 href="#contact"
                 style={styles.secondaryButton}
@@ -243,13 +279,15 @@ export default function App() {
               >
                 Contact Me
               </a>
+
               <a
-                href="/Indumina_Resume.pdf"
-                download
+                href="https://drive.google.com/file/d/1KCuJ4OlZ5ODXOiBRK5qHpEmyR5x7s-4J/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
                 style={styles.resumeButton}
                 className="resume-button"
               >
-                Download Resume
+                View Resume
               </a>
             </div>
           </div>
@@ -258,6 +296,7 @@ export default function App() {
 
       <section style={styles.section} className="section">
         <p style={styles.sectionLabel}>Profile</p>
+
         <div style={styles.galleryGrid} className="gallery-grid">
           {galleryImages.map((image) => (
             <div
@@ -270,7 +309,13 @@ export default function App() {
                 alt={image.title}
                 style={styles.galleryImage}
               />
-              <div style={styles.galleryMeta}>
+
+              <div style={styles.galleryOverlay} className="gallery-overlay">
+                <h3 style={styles.galleryOverlayTitle}>{image.title}</h3>
+                <p style={styles.galleryOverlayText}>{image.description}</p>
+              </div>
+
+              <div style={styles.galleryMeta} className="gallery-title-bar">
                 <p style={styles.galleryTitle}>{image.title}</p>
               </div>
             </div>
@@ -280,20 +325,22 @@ export default function App() {
 
       <section id="about" style={styles.section} className="section">
         <p style={styles.sectionLabel}>Info</p>
+
         <h2 style={styles.sectionHeading}>
           A software engineering student building projects and learning how to
           combine design, code, and research into useful digital experiences.
         </h2>
 
         <p style={styles.sectionText}>
-          My portfolio is focused on the things I’m growing in right now: React,
-          frontend development, software engineering projects, and AI research.
-          I want my work to feel simple, useful, and well designed.
+          My portfolio is focused on the things I’m growing in right now:
+          React, frontend development, software engineering projects, and AI
+          research. I want my work to feel simple, useful, and well designed.
         </p>
       </section>
 
       <section id="projects" style={styles.section} className="section">
         <p style={styles.sectionLabel}># Selected Cases</p>
+
         <div style={styles.projectGrid}>
           {projects.map((project) => (
             <div
@@ -302,9 +349,11 @@ export default function App() {
               className="project-card"
             >
               <p style={styles.projectNumber}>{project.number}.</p>
+
               <h3 style={styles.projectTitle} className="project-title">
                 {project.title}
               </h3>
+
               <p style={styles.projectDescription}>{project.description}</p>
 
               <div style={styles.tagRow}>
@@ -317,6 +366,8 @@ export default function App() {
 
               <a
                 href={project.link}
+                target="_blank"
+                rel="noreferrer"
                 style={styles.projectLink}
                 className="project-link"
               >
@@ -339,6 +390,7 @@ export default function App() {
 
       <section style={styles.section} className="section">
         <p style={styles.sectionLabel}>Tools & Skills</p>
+
         <div style={styles.skillsWrap}>
           {skills.map((skill) => (
             <span key={skill} style={styles.skillPill} className="skill-pill">
@@ -354,9 +406,11 @@ export default function App() {
         className="contact-section"
       >
         <p style={styles.sectionLabel}>Let’s connect</p>
+
         <h2 style={styles.contactHeading}>
           I love creating things through code and design.
         </h2>
+
         <p style={styles.contactText}>
           If you want to see my work, collaborate, or just say hi, you can find
           me here.
@@ -464,39 +518,6 @@ const styles = {
     objectFit: "cover",
     display: "block",
   },
-  imageHint: {
-    color: "#9e9e9e",
-    fontSize: "13px",
-    marginTop: "12px",
-    lineHeight: "1.6",
-    maxWidth: "430px",
-  },
-  galleryGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "18px",
-  },
-  galleryCard: {
-    border: "1px solid rgba(255,255,255,0.1)",
-    borderRadius: "24px",
-    overflow: "hidden",
-    backgroundColor: "#111111",
-  },
-  galleryImage: {
-    width: "100%",
-    height: "420px",
-    objectFit: "cover",
-    display: "block",
-  },
-  galleryMeta: {
-    padding: "14px 16px",
-  },
-  galleryTitle: {
-    margin: 0,
-    fontSize: "15px",
-    color: "#d4d4d4",
-    fontWeight: "600",
-  },
   heroRole: {
     margin: "0 0 8px 0",
     fontSize: "18px",
@@ -566,6 +587,64 @@ const styles = {
     lineHeight: "1.8",
     color: "#cfcfcf",
     maxWidth: "850px",
+  },
+  galleryGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: "18px",
+  },
+  galleryCard: {
+    border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: "24px",
+    overflow: "hidden",
+    backgroundColor: "#111111",
+    position: "relative",
+  },
+  galleryImage: {
+    width: "100%",
+    height: "420px",
+    objectFit: "cover",
+    display: "block",
+  },
+  galleryOverlay: {
+    position: "absolute",
+    inset: 0,
+    background:
+      "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.35))",
+    color: "#ffffff",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    padding: "30px",
+    opacity: 0,
+    visibility: "hidden",
+    zIndex: 3,
+  },
+  galleryOverlayTitle: {
+    margin: "0 0 10px 0",
+    fontSize: "30px",
+    fontWeight: "800",
+  },
+  galleryOverlayText: {
+    margin: 0,
+    fontSize: "16px",
+    lineHeight: "1.7",
+    maxWidth: "680px",
+  },
+  galleryMeta: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    padding: "18px 16px",
+    background: "linear-gradient(to top, rgba(0,0,0,0.65), transparent)",
+    zIndex: 2,
+  },
+  galleryTitle: {
+    margin: 0,
+    fontSize: "15px",
+    color: "#ffffff",
+    fontWeight: "700",
   },
   projectGrid: {
     display: "grid",
