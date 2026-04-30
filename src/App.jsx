@@ -1,4 +1,4 @@
-import profileImg from "./indumina.jpg";
+import profileImg from "./profile-main.jpg";
 import beachImg from "./gallery-beach.jpg";
 import dunesImg from "./gallery-dunes.jpg";
 
@@ -133,12 +133,13 @@ export default function App() {
         }
 
         .gallery-card:hover .gallery-overlay {
-          opacity: 1;
-          visibility: visible;
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateY(0) !important;
         }
 
         .gallery-card:hover .gallery-title-bar {
-          opacity: 0;
+          opacity: 0 !important;
         }
 
         .project-link:hover {
@@ -195,6 +196,7 @@ export default function App() {
           .gallery-overlay {
             opacity: 1 !important;
             visibility: visible !important;
+            transform: translateY(0) !important;
           }
 
           .gallery-title-bar {
@@ -610,26 +612,32 @@ const styles = {
     position: "absolute",
     inset: 0,
     background:
-      "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.35))",
+      "linear-gradient(to top, rgba(0,0,0,0.98), rgba(0,0,0,0.55))",
     color: "#ffffff",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
-    padding: "30px",
+    padding: "34px",
     opacity: 0,
     visibility: "hidden",
-    zIndex: 3,
+    transform: "translateY(18px)",
+    zIndex: 5,
   },
   galleryOverlayTitle: {
-    margin: "0 0 10px 0",
-    fontSize: "30px",
+    margin: "0 0 12px 0",
+    fontSize: "32px",
     fontWeight: "800",
+    color: "#ffffff",
+    textShadow: "0 3px 12px rgba(0,0,0,0.9)",
   },
   galleryOverlayText: {
     margin: 0,
     fontSize: "16px",
-    lineHeight: "1.7",
-    maxWidth: "680px",
+    lineHeight: "1.75",
+    maxWidth: "700px",
+    color: "#ffffff",
+    fontWeight: "500",
+    textShadow: "0 3px 12px rgba(0,0,0,0.9)",
   },
   galleryMeta: {
     position: "absolute",
@@ -637,7 +645,7 @@ const styles = {
     right: 0,
     bottom: 0,
     padding: "18px 16px",
-    background: "linear-gradient(to top, rgba(0,0,0,0.65), transparent)",
+    background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
     zIndex: 2,
   },
   galleryTitle: {
