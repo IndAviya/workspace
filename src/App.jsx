@@ -1,4 +1,4 @@
-import profileImg from "./profile-main.jpg";
+import profileImg from "./indumina.jpg";
 import beachImg from "./gallery-beach.jpg";
 import dunesImg from "./gallery-dunes.jpg";
 
